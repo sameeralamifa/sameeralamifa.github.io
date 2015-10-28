@@ -11,6 +11,13 @@ a {
   -o-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s;
 }
+.cover-all {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .vert-text {
   display: table-cell;
   vertical-align: middle;
@@ -189,17 +196,23 @@ i.service-icon {
 }
 
 /* Map */
-.map {
+.map, .contact-form {
   height: 380px;
   position: relative;
+  overflow: hidden;
 }
-.map iframe {
+.map {
+  margin: 0 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.map iframe, .contact-form iframe {
   position: absolute;
   height: 380px;
 }
 .contact-card {
   position: absolute;
-  right: 0;
+  left: 0;
+  bottom: 0;
   margin: 10px;
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
@@ -216,6 +229,11 @@ i.service-icon {
   font-weight: bolder;
   font-size: 14px;
   margin-bottom: 6px;
+}
+
+.contact-form iframe {
+  top: -40px;
+  height: 420px;
 }
 
 /* Footer */
@@ -279,10 +297,9 @@ i.scroll:hover {
   .map {
   }
   .contact-card {
-    top: auto;
-    left: 0;
-    right: auto;
-    bottom: 0;
+  }
+  .contact-form iframe {
+    height: 440px;
   }
   .services, .intro, .contact {
     padding: 20px 0;
