@@ -134,11 +134,13 @@ a {
   margin-bottom: 15px;
   padding: 10px;
   opacity: .8;
-  -webkit-transition: opacity 0.4s ease 0s;
-  -moz-transition: opacity 0.4s ease 0s;
-  -ms-transition: opacity 0.4s ease 0s;
-  -o-transition: opacity 0.4s ease 0s;
-  transition: opacity 0.4s ease 0s;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+}
+.service-item:link, .service-item:hover, .service-item:active {
+  color: #fff;
+  text-decoration: none;
 }
 .service-item:hover {
   opacity: 1;

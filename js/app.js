@@ -1,27 +1,38 @@
 $(function() {
-    var $sidebar = $('#sidebar-wrapper'),
+    var $body = $('body'),
+        $sidebar = $('#sidebar-wrapper'),
         $menuCloseBtn = $('#menu-close'),
         $menuToggleBtn = $('#menu-toggle');
 
     function closeSidebar() {
         $sidebar.removeClass('active');
+        $body.off('click.sidebar');
     }
 
     function openSidebar() {
         $sidebar.addClass('active');
+        $body
+            .off('click.sidebar')
+            .on('click.sidebar', closeSidebar);
     }
 
     function toggleSidebar() {
-        $sidebar.toggleClass('active');
+        if ($sidebar.hasClass('active')) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
     }
 
     $menuCloseBtn.on('click', function(e) {
         e.preventDefault();
+        e.stopPropagation();
         closeSidebar();
     });
 
     $menuToggleBtn.on('click', function(e) {
         e.preventDefault();
+        e.stopPropagation();
         toggleSidebar();
     });
 
