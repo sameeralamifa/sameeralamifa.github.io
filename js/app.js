@@ -24,6 +24,18 @@ $(function() {
         }
     }
 
+    function scrollTo(target, time) {
+        if (!target || !target.length) {
+            return;
+        }
+        if (typeof time === 'undefined') {
+            time = 500;
+        }
+        $('html,body').animate({
+            scrollTop: target.offset().top
+        }, time);
+    }
+
     $menuCloseBtn.on('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -49,12 +61,13 @@ $(function() {
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 
             if (target.length) {
-                $('html,body').animate({
-                    scrollTop: target.offset().top
-                }, 500);
-                e.preventDefault();
+                scrollTo(target)
+                // e.preventDefault();
             }
         }
     });
 
+    setTimeout(function() {
+        scrollTo($(window.location.hash));
+    }, 1000);
 });
